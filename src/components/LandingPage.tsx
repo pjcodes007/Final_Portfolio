@@ -4,7 +4,7 @@ import { ArrowRight, ChevronDown } from "lucide-react";
 
 export default function Landing() {
   return (
-    <div className="absolute inset-0 flex top-[25dvh] justify-center text-white px-6 font-[Outfit] ">
+    <div className="relative inset-0 flex top-60 justify-center text-white px-6 font-[Outfit] z-10 min-h-screen">
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         animate={{ opacity: 1, y: 0 }}
@@ -12,7 +12,7 @@ export default function Landing() {
         className="text-center max-w-2xl space-y-10"
       >
         <div className="space-y-3">
-          <h1 className="text-4xl md:text-6xl  font-black font-[Merriweather] font-neutral-400">
+          <h1 className="text-3xl md:text-5xl font-black font-[Merriweather] font-neutral-500">
             Praanjal Joshi
           </h1>
           <p className="text-lg md:text-2xl text-white/80 font-light leading-relaxed">
@@ -24,19 +24,20 @@ export default function Landing() {
         </div>
 
         <div className="flex justify-center gap-4 flex-wrap pt-2">
-          <Button
-            variant="outline"
-            className="border-white/30 text-white hover:bg-white hover:text-black transition-colors duration-300"
-          >
-            View Projects
-            <ArrowRight className="ml-2 w-4 h-4" />
-          </Button>
-          <Button
-            className="bg-white text-black hover:bg-neutral-200 transition-colors duration-300"
-          >
-            Let’s Work Together
-            <ArrowRight className="ml-2 w-4 h-4" />
-          </Button>
+          <button className="relative overflow-hidden rounded-xl  px-6 py-2 text-white  group">
+            <span className="relative z-10 transition-colors duration-300 group-hover:text-black flex">
+              View Projects <ArrowRight/>
+            </span>
+            <span className="absolute inset-0 w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
+          </button>
+
+          <button className="relative overflow-hidden rounded-xl  px-6 py-2 text-white  group">
+  <span className="relative z-10 transition-colors duration-300 group-hover:text-black flex">
+    Let's Work Together <ArrowRight/>
+  </span>
+  <span className="absolute inset-0 w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
+</button>
+
         </div>
 
         <motion.div>

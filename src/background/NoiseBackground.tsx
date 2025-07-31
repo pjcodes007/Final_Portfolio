@@ -37,9 +37,11 @@ const fragmentShader = `
   }
 
   void main() {
-    vec2 st = vUv * 3.0;
-    float n = noise(st + vec2(u_time * 0.05, u_time * 0.02));
-    vec3 color = vec3(n * 0.1 +0.05);
+    vec2 st = vUv * 1.0;
+    float n = noise(st + vec2(u_time * 0.01, u_time * 0.01));
+    vec3 color = vec3(n * 0.1+0.01);
+
+
 
     gl_FragColor = vec4(color, 1.0);
   }

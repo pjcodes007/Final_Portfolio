@@ -1,20 +1,16 @@
 import { useState } from 'react'
-import NoiseBackground from './background/NoiseBackground'
-import Navbar from './components/Navbar'
-import Landing from './components/LandingPage'
-import ProjectsSection from './components/ProjectsSection'
+import Home from './Pages/Home'
 import './App.css'
+import CustomCursorWrapper from './components/CustomCursor'
 
 function App() {
   const [count, setCount] = useState(0)
 
   return (
-    <>
-      <NoiseBackground/>
-      <Navbar/>
-      <ProjectsSection/>
-    </>
+    <CustomCursorWrapper>
+      <Home />
+    </CustomCursorWrapper>
   )
 }
 
-export default App
+export default App;
