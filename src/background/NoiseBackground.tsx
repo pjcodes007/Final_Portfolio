@@ -1,7 +1,8 @@
-import { useFrame } from "@react-three/fiber";
+import { Canvas, useFrame } from "@react-three/fiber";
 import { useRef } from "react";
 import * as THREE from "three";
 
+// Shaders
 const vertexShader = `
   varying vec2 vUv;
   void main() {
@@ -12,16 +13,14 @@ const vertexShader = `
 
 const fragmentShader = `
   precision mediump float;
-
   varying vec2 vUv;
   uniform float u_time;
 
-  // Simplex noise function (a small one)
-  float random (in vec2 st) {
-    return fract(sin(dot(st.xy, vec2(12.9898,78.233))) * 43758.5453123);
+  float random(vec2 st) {
+    return fract(sin(dot(st.xy, vec2(12.9898, 78.233))) * 43758.5453123);
   }
 
-  float noise (in vec2 st) {
+  float noise(vec2 st) {
     vec2 i = floor(st);
     vec2 f = fract(st);
 
@@ -32,18 +31,22 @@ const fragmentShader = `
 
     vec2 u = f * f * (3.0 - 2.0 * f);
 
-    return mix(a, b, u.x) + (c - a) * u.y * (1.0 - u.x) + (d - b) * u.x * u.y;
+    return mix(a, b, u.x) +
+           (c - a) * u.y * (1.0 - u.x) +
+           (d - b) * u.x * u.y;
   }
 
   void main() {
     vec2 st = vUv * 3.0;
     float n = noise(st + vec2(u_time * 0.05, u_time * 0.02));
-    vec3 color = vec3(n * 0.1 + 0.04); // faint glow
+    vec3 color = vec3(n * 0.1 +0.05);
+
     gl_FragColor = vec4(color, 1.0);
   }
 `;
 
-export default function NoiseBackground() {
+
+function Noise() {
   const materialRef = useRef<THREE.ShaderMaterial>(null);
 
   useFrame(({ clock }) => {
@@ -59,11 +62,20 @@ export default function NoiseBackground() {
         ref={materialRef}
         vertexShader={vertexShader}
         fragmentShader={fragmentShader}
-        uniforms={{
-          u_time: { value: 0 },
-        }}
+        uniforms={{ u_time: { value: 0 } }}
         side={THREE.DoubleSide}
       />
     </mesh>
+  );
+}
+
+
+export default function NoiseBackground() {
+  return (
+    <div className="w-screen h-screen fixed top-0 left-0 z-[-1]">
+      <Canvas camera={{ position: [0, 0, 1], fov: 75 }}>
+        <Noise />
+      </Canvas>
+    </div>
   );
 }

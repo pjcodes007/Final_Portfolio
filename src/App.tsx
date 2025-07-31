@@ -1,6 +1,8 @@
 import { useState } from 'react'
-import Background from './background/Background'
+import NoiseBackground from './background/NoiseBackground'
 import Navbar from './components/Navbar'
+import Landing from './components/LandingPage'
+import ProjectsSection from './components/ProjectsSection'
 import './App.css'
 
 function App() {
@@ -8,8 +10,9 @@ function App() {
 
   return (
     <>
-      <Background/>
+      <NoiseBackground/>
       <Navbar/>
+      <ProjectsSection/>
     </>
   )
 }

@@ -19,7 +19,7 @@ const Navbar = () => {
       <motion.nav
         className="
           fixed top-5 left-0 right-0 z-50
-          max-w-xl mx-auto w-full
+          max-w-4xl mx-auto w-full
           flex justify-between items-center
           h-10 px-6
           text-white
@@ -32,12 +32,12 @@ const Navbar = () => {
           className="font-[Jaro] text-2xl flex items-center cursor-pointer select-none"
           animate={controls}
           onClick={rotateOnClick}
-          title="Click to spin logo"
+        
         >
           &lt;PJ&gt;
         </motion.p>
 
-        <div className="flex gap-7 text-[1rem] px-4 rounded-lg backdrop-blur-md font-mono bg-white/1 items-center h-8">
+        <div className="flex gap-7 text-[1rem] px-4 rounded-lg backdrop-blur-md font-[Outfit]  items-center h-8">
           <a href="#">Home</a>
           <a href="#">About</a>
           <a href="#">Work</a>
