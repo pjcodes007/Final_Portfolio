@@ -5,7 +5,8 @@ import TechSkills from "@/components/TechSkills";
 import Connect from "@/components/Invite";
 import Footer from "@/components/Footer";
 import Projects from "@/components/Projects";
-
+import { DotBackgroundDemo } from "@/background/DotBackground";
+import StarryBackground from "@/background/TextureBackground";
 
 const Home = () => {
   return (
@@ -16,7 +17,7 @@ const Home = () => {
 
         <Landing />
       </section>
-      <section className="relative z-20">
+      <section className="relative z-20 ">
         <Projects />
       </section>
 

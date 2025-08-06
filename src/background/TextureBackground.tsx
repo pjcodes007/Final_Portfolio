@@ -3,7 +3,7 @@ import { Stars } from "@react-three/drei";
 
 export default function StarryBackground() {
   return (
-    <div className="fixed inset-0 z-[-10] bg-black">
+    <div className="fixed inset-0 z-[-20] bg-black">
       <Canvas camera={{ position: [0, 0, 1], fov: 75 }}>
         <Stars
           radius={100}        

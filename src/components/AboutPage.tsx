@@ -11,6 +11,7 @@ import {
 } from "lucide-react";
 import Footer from './Footer';
 import StarryBackground from "@/background/TextureBackground";
+import { DotBackgroundDemo } from "@/background/DotBackground";
 
 const timeline = [
   {
@@ -47,8 +48,8 @@ const timeline = [
 
 export default function AboutPage() {
   return (
-    <div className="min-h-screen w-full px-6 pt-20 text-white font-sans relative">
-        <StarryBackground />
+    <div className="min-h-screen w-full px-6 pt-20 text-white font-sans relative dark">
+        <DotBackgroundDemo />
         
       {/* Intro Section */}
       <motion.div
@@ -76,7 +77,7 @@ export default function AboutPage() {
       <motion.pre
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ delay: 0.2, duration: 0.8 }}
+        transition={{ delay: 0.2, duration: 0.4 }}
         viewport={{ once: true }}
         className="max-w-3xl mx-auto mt-80 border border-white rounded-xl p-3 bg-gradient-to-b from-blue-50 to-blue-200 text-transparent bg-clip-text"
         style={{ whiteSpace: 'pre-wrap' }}
@@ -97,7 +98,7 @@ export default function AboutPage() {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.3, duration: 0.6 }}
+        transition={{ delay: 0.2, duration: 0.2 }}
         viewport={{ once: true }}
         className="mt-32 flex flex-col items-center gap-6"
       >
@@ -118,7 +119,7 @@ export default function AboutPage() {
       <motion.div
         initial={{ opacity: 0, y: 40 }}
         whileInView={{ opacity: 1, y: 0 }}
-        transition={{ delay: 0.4, duration: 0.8 }}
+        transition={{ delay: 0.1, duration: 0.2 }}
         viewport={{ once: true }}
         className="mt-24 max-w-3xl mx-auto"
       >
@@ -144,7 +145,7 @@ export default function AboutPage() {
       <motion.div
         initial={{ opacity: 0 }}
         whileInView={{ opacity: 1 }}
-        transition={{ duration: 0.7, delay: 0.8 }}
+        transition={{ duration: 0.1, delay: 0.2 }}
         viewport={{ amount: 1, once: true }}
         className="w-full min-h-[60vh] text-white px-6 py-20 flex flex-col justify-center items-center text-center"
       >

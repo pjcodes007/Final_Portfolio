@@ -1,7 +1,7 @@
 import { motion } from "framer-motion";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, ChevronDown } from "lucide-react";
-
+import { Link } from "react-router-dom";
 export default function Landing() {
   return (
     <div className="relative inset-0 flex top-60 justify-center text-white px-6 font-[Outfit] z-10 min-h-screen">
@@ -24,14 +24,16 @@ export default function Landing() {
         </div>
 
         <div className="flex justify-center gap-4 flex-wrap pt-2">
-          <button className="relative overflow-hidden rounded-xl  px-6 py-2 text-white  group">
+          <button className="relative overflow-hidden rounded-xl  px-6 py-2 text-white  group border-2 border-white/10">
+            <Link to={'/project'}>
             <span className="relative z-10 transition-colors duration-300 group-hover:text-black flex">
               View Projects <ArrowRight/>
             </span>
+            </Link>
             <span className="absolute inset-0 w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
           </button>
 
-          <button className="relative overflow-hidden rounded-xl  px-6 py-2 text-white  group">
+          <button className="relative overflow-hidden rounded-xl  px-6 py-2 text-white  group border-2 border-white/10">
   <span className="relative z-10 transition-colors duration-300 group-hover:text-black flex">
     Let's Work Together <ArrowRight/>
   </span>
