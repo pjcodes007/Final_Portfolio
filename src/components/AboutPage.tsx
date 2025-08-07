@@ -12,6 +12,8 @@ import {
 import Footer from './Footer';
 import StarryBackground from "@/background/TextureBackground";
 import { DotBackgroundDemo } from "@/background/DotBackground";
+import PopUp from "@/Pages/PopUp";
+import { useState } from "react";
 
 const timeline = [
   {
@@ -47,8 +49,9 @@ const timeline = [
 ];
 
 export default function AboutPage() {
+  const [showPopup,setShowPopup] = useState<boolean>(false);
   return (
-    <div className="min-h-screen w-full px-6 pt-20 text-white font-sans relative dark">
+    <div className="min-h-screen w-full px-6 pt-20 text-white font-[Outfit] relative dark">
         <DotBackgroundDemo />
         
       {/* Intro Section */}
@@ -61,14 +64,14 @@ export default function AboutPage() {
         <h1 className="text-4xl md:text-5xl font-semibold mb-4 relative inline-block group">
           <span className="relative z-10">Hi</span>
           <span
-            className="absolute z-0 -left-6 -top-3 text-3xl md:text-4xl opacity-0 group-hover:opacity-100 transition-all duration-300 rotate-[-35deg]"
+            className="absolute z-0 -left-6 -top-3 text-3xl md:text-4xl opacity-0 group-hover:opacity-100 transition-all duration-300 rotate-[-35deg] "
             aria-hidden
           >
             ✋
           </span>
           , I’m <span className="font-black text-white">Praanjal</span>
         </h1>
-        <p className="text-lg md:text-xl text-gray-300">
+        <p className="text-lg md:text-xl text-gray-300 font-[Outfit]">
           I’m a full-stack developer crafting clean, performant, and beautiful experiences on the web.
         </p>
       </motion.div>
@@ -104,7 +107,7 @@ export default function AboutPage() {
       >
         <div className="group relative flex flex-col items-center">
           <h2 className="text-3xl font-bold mb-2">
-            <a href="https://github.com/pjcodes007" target="_blank" className="underline">
+            <a href="https://github.com/pjcodes007" target="_blank" >
               GitHub
             </a>
           </h2>
@@ -156,18 +159,19 @@ export default function AboutPage() {
             Ready When <span className="font-bold">You're</span>
           </h2>
 
-          <button className="relative overflow-hidden rounded-full border border-white px-6 py-2 text-white group">
+          <button className="relative overflow-hidden rounded-full border border-white px-6 py-2 text-white group" onClick={()=>(setShowPopup(!showPopup))}>
             <span className="relative z-10 transition-colors duration-300 group-hover:text-black flex items-center gap-2">
               Get In Touch <ArrowRight />
             </span>
             <span className="absolute inset-0 w-0 bg-white transition-all duration-300 group-hover:w-full"></span>
           </button>
-
-          <p className="mt-8 text-lg md:text-xl font-semibold italic text-white/40 underline">
-            " I'm available for freelance projects."
-          </p>
+          <br />
+          <a href='https://www.freelancer.com/u/pranjalj967?sb=t' className="mt-8 text-lg md:text-xl font-semibold italic text-white/40 underline">
+          " I'm available for freelance projects."
+        </a>
         </div>
       </motion.div>
+      {showPopup && <PopUp setShowPopup={setShowPopup}/>}
       <div>
         
         <Footer />

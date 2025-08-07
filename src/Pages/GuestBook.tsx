@@ -1,37 +1,24 @@
-import { motion } from "framer-motion";
-import { Sparkles } from "lucide-react";
+import GuestForm from "@/components/GuestForm";
 
-const GuestBook = () => {
+const Guestbook: React.FC = () => {
   return (
-    <div className="min-h-screen flex items-center justify-center bg-gradient-to-br from-[#1e1e1e] to-[#2b2b2b] text-white p-6">
-      <div className="max-w-2xl w-full text-center space-y-10">
-        <motion.div
-          initial={{ opacity: 0, y: -40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="space-y-4"
-        >
-          <h1 className="text-5xl font-bold flex justify-center items-center gap-2">
-            GuestBook <Sparkles className="w-8 h-8 text-blue-400 animate-pulse" />
+    <div className="min-h-screen bg-gradient-to-b from-black via-zinc-900 to-black text-white font-[Outfit]">
+      <div className="max-w-3xl mx-auto px-6 py-16">
+        <div className="mb-10 text-center">
+          <h1 className="text-4xl md:text-5xl font-extrabold mb-4 tracking-tight">
+            📓 Guestbook
           </h1>
-          <p className="text-gray-300 text-lg">
-            Drop a message, leave a doodle, or just say hi! This feature is in the works.
+          <p className="text-gray-400 text-lg">
+            Leave a message or doodle and it'll be pinned on the board!
           </p>
-        </motion.div>
+        </div>
 
-        <motion.div
-          initial={{ opacity: 0, y: 40 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ delay: 0.3, duration: 0.6 }}
-          className="backdrop-blur-md bg-white/5 border border-white/10 rounded-2xl p-6 shadow-xl"
-        >
-          <p className="text-gray-400 text-sm">
-            Coming Soon: A doodle pad + message box will appear here for guests to leave their thoughts.
-          </p>
-        </motion.div>
+        <div className="bg-zinc-800/50 p-6 rounded-2xl border border-zinc-700 shadow-xl backdrop-blur-md">
+          <GuestForm />
+        </div>
       </div>
     </div>
   );
 };
 
-export default GuestBook;
+export default Guestbook;

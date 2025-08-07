@@ -3,6 +3,7 @@ import { motion, useInView } from "framer-motion";
 import { FaGithub } from "react-icons/fa";
 import { DotBackgroundDemo } from "@/background/DotBackground";
 import Navbar from "../components/Navbar";
+import Footer from "@/components/Footer";
 
 import HTMLimg from "../icons/html-5-svgrepo-com.svg";
 import CSSimg from "../icons/css-3-svgrepo-com.svg";
@@ -63,31 +64,51 @@ const projects: Project[] = [
     points: [
       "Secure user authentication ",
       "Google OAuth integration for easy sign-in",
-      "Products dynamically rendered from a MongoDB database"
+      "Products dynamically rendered from a MongoDB database",
     ],
-    techStack: ["React", "Tailwind", "Framer Motion", "Mongoose", "MongoDB", "Express", "Node.js", "Zustand"],
+    techStack: [
+      "React",
+      "Tailwind",
+      "Framer Motion",
+      "Mongoose",
+      "MongoDB",
+      "Express",
+      "Node.js",
+      "Zustand",
+    ],
     image: "/image2.png",
     github: "../../public/image2.png",
   },
   {
     title: "Social Media Website",
-    description: "A full-featured platform for photo sharing and social engagement.",
+    description:
+      "A full-featured platform for photo sharing and social engagement.",
     points: [
       "Secure authentication with personalized user dashboards",
       "Dynamic photo feed and upload functionality",
-      "Customizable layouts with movable and resizable photo components"
+      "Customizable layouts with movable and resizable photo components",
     ],
-    techStack: ["React", "Tailwind", "Framer Motion", "Mongoose", "MongoDB", "Express", "Node.js", "Zustand"],
+    techStack: [
+      "React",
+      "Tailwind",
+      "Framer Motion",
+      "Mongoose",
+      "MongoDB",
+      "Express",
+      "Node.js",
+      "Zustand",
+    ],
     image: "/image3.png",
     github: "https://github.com/yourusername/project-two",
   },
   {
     title: "Tic Tac Toe",
-    description: "A classic game reimagined with local score tracking and a clean interface.",
+    description:
+      "A classic game reimagined with local score tracking and a clean interface.",
     points: [
       "Minimalistic and responsive design",
       "Persistent score tracking using local storage",
-      "Reset controls for both game and score"
+      "Reset controls for both game and score",
     ],
     techStack: ["React", "Tailwind"],
     image: "/project-sample.png",
@@ -95,18 +116,18 @@ const projects: Project[] = [
   },
   {
     title: "Portfolio",
-    description: "A visually compelling developer portfolio with interactive features.",
+    description:
+      "A visually compelling developer portfolio with interactive features.",
     points: [
       "Custom-designed interface with fluid animations",
       "Framer Motion bubbles for playful background interactions",
-      "Built-in Game Zone section for creative flair"
+      "Built-in Game Zone section for creative flair",
     ],
     techStack: ["React", "Tailwind"],
-    image: '/image.png',
+    image: "/image.png",
     github: "https://github.com/yourusername/project-three",
   },
 ];
-
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
   const ref = useRef<HTMLDivElement | null>(null);
@@ -120,7 +141,9 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
       animate={isInView ? { opacity: 1, y: 0 } : {}}
       transition={{ duration: 0.6, delay: index * 0.2 }}
       className={`relative w-full md:w-[65%] my-10 p-8 rounded-2xl bg-white/5 backdrop-blur-md shadow-lg hover:scale-[1.02] transition-transform duration-300 flex flex-col md:flex-row gap-6 ${
-        isLeft ? "md:self-start md:ml-0 md:mr-auto" : "md:self-end md:ml-auto md:mr-0"
+        isLeft
+          ? "md:self-start md:ml-0 md:mr-auto"
+          : "md:self-end md:ml-auto md:mr-0"
       }`}
     >
       <img
@@ -144,22 +167,21 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
           ))}
         </ul>
         <div className="flex flex-wrap gap-2 mt-2">
-  {project.techStack.map((tech, i) => {
-    const icon = skills.find(skill => skill.name.toLowerCase() === tech.toLowerCase())?.icon;
-    return (
-      <span
-        key={i}
-        className="flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 text-white text-xs hover:bg-white/20 transition"
-      >
-        {icon && (
-          <img src={icon} alt={tech} className="h-4 w-4" />
-        )}
-        {tech}
-      </span>
-    );
-  })}
-</div>
-
+          {project.techStack.map((tech, i) => {
+            const icon = skills.find(
+              (skill) => skill.name.toLowerCase() === tech.toLowerCase()
+            )?.icon;
+            return (
+              <span
+                key={i}
+                className="flex items-center gap-1 px-3 py-1 rounded-full bg-white/10 text-white text-xs hover:bg-white/20 transition"
+              >
+                {icon && <img src={icon} alt={tech} className="h-4 w-4" />}
+                {tech}
+              </span>
+            );
+          })}
+        </div>
       </div>
     </motion.div>
   );
@@ -167,12 +189,15 @@ const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {
 
 export default function Projectss() {
   return (
-    <div className="relative w-full px-8 pt-32 pb-20  text-white overflow-y-auto min-h-screen">
-        <Navbar />
-      <div className="absolute inset-0 w-full min-h-full  pointer-events-none dark ">
+    <div className="flex flex-col min-h-screen text-white relative overflow-hidden dark">
+      {/* Background */}
+      <div className="absolute inset-0 w-full h-full pointer-events-none">
         <DotBackgroundDemo />
       </div>
-      <div className="relative">
+
+      <Navbar />
+
+      <main className="flex-grow px-8 pt-32 pb-20 relative z-10">
         <h1 className="text-center text-5xl font-bold mb-20 text-white">
           Projects
         </h1>
@@ -181,7 +206,9 @@ export default function Projectss() {
             <ProjectCard key={index} project={project} index={index} />
           ))}
         </div>
-      </div>
+      </main>
+
+      <Footer />
     </div>
   );
 }

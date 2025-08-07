@@ -13,23 +13,23 @@ const Home = () => {
     <>
       <NoiseBackground />
       <Navbar />
-      <section className="relative z-20">
+      <section >
 
         <Landing />
       </section>
-      <section className="relative z-20 ">
+      <section >
         <Projects />
       </section>
 
-      <section className="relative z-20">
+      <section >
         <TechSkills />
       </section>
 
-      <section className="relative z-20">
+      <section >
         <Connect />
       </section>
 
-      <section className="relative z-20">
+      <section >
         <Footer />
       </section>
     </>

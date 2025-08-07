@@ -1,6 +1,6 @@
 // components/Footer.tsx
 import { Github, Linkedin, Mail } from "lucide-react";
-
+import { FaLinkedin,FaGithub } from "react-icons/fa";
 export default function Footer() {
   return (
     <footer className="bg-transparent rounded-xl backdrop-blur-md text-white py-10 px-6">
@@ -20,7 +20,6 @@ export default function Footer() {
             <li><a href="#home" className="hover:text-white transition-colors">Home</a></li>
             <li><a href="#projects" className="hover:text-white transition-colors">Projects</a></li>
             <li><a href="#skills" className="hover:text-white transition-colors">Skills</a></li>
-            <li><a href="#connect" className="hover:text-white transition-colors">Contact</a></li>
             <li><a href="/guestbook" className="hover:text-white transition-colors">Guest Book</a></li>
           </ul>
         </div>
@@ -29,14 +28,22 @@ export default function Footer() {
         <div className="flex-1 flex flex-col  md:items-end">
           <h3 className="text-white font-semibold mb-2">Connect</h3>
           <div className="flex justify-center gap-4">
-            <a href="mailto:you@example.com" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
+            <a href="https://mail.google.com/mail/u/0/#inbox?compose=GTvVlcSDZBJRppfGmMkQjLtCRSmZtBTjVqrJNVgcfrqQdCWPSXQSDdgfbgVzMpTZKrPhrJWXKzljq" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
               <Mail size={20} />
             </a>
-            <a href="https://github.com/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-              <Github size={20} />
+<a
+              href="https://github.com/pjcodes007"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaGithub className="text-white text-lg hover:text-gray-400 transition" />
             </a>
-            <a href="https://linkedin.com/in/yourusername" target="_blank" rel="noopener noreferrer" className="hover:text-white transition-colors">
-              <Linkedin size={20} />
+<a
+              href="https://www.linkedin.com/in/praanjal-joshi"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
+              <FaLinkedin className="text-white text-lg hover:text-blue-400 transition" />
             </a>
           </div>
         </div>

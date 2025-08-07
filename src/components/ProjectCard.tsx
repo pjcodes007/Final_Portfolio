@@ -56,7 +56,7 @@ interface Props {
 export default function ProjectCard({ project, isActive }: Props) {
   return (
 <motion.div
-  className={`flex flex-col lg:flex-row items-center justify-center transition-all duration-500 w-[70vw] gap-10 p-4 rounded-xl bg-black/10 backdrop-blur-md  ${
+  className={`flex flex-col lg:flex-row items-center justify-center transition-all duration-500 w-[70vw] gap-10 p-4 rounded-xl bg-black/10 backdrop-blur-md   ${
     isActive ? "opacity-100" : "opacity-0"
   }`}
   initial={{ opacity: 0, y: 100 }}

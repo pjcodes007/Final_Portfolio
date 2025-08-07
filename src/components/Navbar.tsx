@@ -1,8 +1,9 @@
 import { useCallback } from "react";
 import { useAnimation, motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
+import PopUp from "@/Pages/PopUp";
 import comp from "../../public/comp.png";
-
+import '../App.css'
 
 const Navbar = () => {
   const controls = useAnimation();
@@ -38,8 +39,8 @@ const Navbar = () => {
 
       {/* Nav Links */}
       <div className="flex gap-7 text-[1rem] px-4 rounded-lg font-[Outfit] items-center h-8">
-        {["/", "/about", "/project"].map((path, idx) => {
-          const label = ["Home", "About", "Work"][idx];
+        {["/", "/about", "/project",'/guestbook'].map((path, idx) => {
+          const label = ["Home", "About", "Work","GuestBook"][idx];
           return (
             <NavLink
               key={path}
@@ -47,7 +48,8 @@ const Navbar = () => {
               className={({ isActive }) =>
                 `relative transition-all duration-200 ${
                   isActive ? "text-white" : "text-white/70"
-                }`
+                }
+                font-[Inter]`
               }
             >
               {({ isActive }) => (
