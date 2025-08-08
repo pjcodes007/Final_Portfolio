@@ -5,6 +5,7 @@ import Projectss from './Pages/Project';
 import PopUp from './Pages/PopUp';
 import NotFound from './Pages/NotFound';
 import ScrollToTop from './components/ScrollToTop';
+import Guestbook from './Pages/GuestBook';
 
 
 const App = () =>{
@@ -16,6 +17,7 @@ const App = () =>{
       <Route path = '/' element={<Home/>}/>
       <Route path = '/about' element={<About/>}/>
       <Route path = '/project' element={<Projectss/>} />
+      <Route path = '/guestbook' element={<Guestbook/>} />
       <Route path = '/*' element={<NotFound/>} />
     </Routes>  
 
