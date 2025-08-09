@@ -49,7 +49,7 @@ const Navbar = () => {
         </motion.div>
 
         {/* Desktop nav */}
-        <div className="hidden md:flex gap-8 text-sm font-[Merryweather] uppercase tracking-wide">
+        <div className="hidden md:flex gap-5 text-[13px] font-[Outfit] uppercase tracking-wide">
           {navLinks.map(({ path, label }) => (
             <NavLink
               key={path}
