@@ -4,7 +4,7 @@ export const projects = [
     title: "E-commerce Website",
     description: 'A full-stack e-commerce platform with user authentication, product management, and a shopping cart.',
     techStack: ["React", "Tailwind", "mongodb","mongoose","Shadcn","Zustand","Vercel","Express"],
-    imageUrl: "../public/image2.png",
+    imageUrl: "image2.png",
   },
  
   { 
@@ -12,6 +12,6 @@ export const projects = [
     title: "Portfolio Website(Old)",
     description: "Minimal landing page for a clothing store.",
     techStack:["React", "Tailwind","mongoose","Shadcn","Vercel"],
-    imageUrl: "../public/image.png",
+    imageUrl: "image.png",
   },
 ];

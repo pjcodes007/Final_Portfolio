@@ -1,13 +1,19 @@
-import { useCallback } from "react";
+import { useCallback, useState } from "react";
 import { useAnimation, motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
-import PopUp from "@/Pages/PopUp";
 import comp from "../../public/comp.png";
-import CookingPage from "./3d";
-import "../App.css";
+import '../App.css';
+
+const navLinks = [
+  { path: "/", label: "Home" },
+  { path: "/about", label: "About" },
+  { path: "/project", label: "Work" },
+  { path: "/guestbook", label: "GuestBook" },
+];
 
 const Navbar = () => {
   const controls = useAnimation();
+  const [isOpen, setIsOpen] = useState(false);
 
   const rotateOnClick = useCallback(async () => {
     await controls.start({
@@ -17,41 +23,43 @@ const Navbar = () => {
     await controls.start({ rotateY: 0 });
   }, [controls]);
 
+  const toggleMenu = () => setIsOpen((prev) => !prev);
+
   return (
     <motion.nav
       className="
-        fixed top-5 left-0 right-0 z-50
-        max-w-4xl mx-auto w-full
-        flex justify-between items-center
-        h-12 px-6
+        fixed top-5 left-2 right-2
+        z-50 mx-auto w-full
+        sm:max-w-3xl sm:left-0 sm:right-0
+        backdrop-blur-md
+        rounded-lg shadow
+        sm:rounded-xl sm:shadow-lg
         text-white
-        bg-white/5 backdrop-blur-md
-        rounded-xl shadow-lg
+        px-4 sm:px-3
       "
     >
-      {/* Logo */}
-      <motion.p
-        className="font-[Jaro] text-2xl flex items-center cursor-pointer select-none"
-        animate={controls}
-        onClick={rotateOnClick}
-      >
-        &lt;PJ&gt;
-      </motion.p>
+      <div className="flex justify-between items-center h-14">
+        {/* Logo */}
+        <motion.div
+          className="font-[Jaro] text-2xl cursor-pointer select-none"
+          animate={controls}
+          onClick={rotateOnClick}
+        >
+          &lt;PJ&gt;
+        </motion.div>
 
-      {/* Nav Links */}
-      <div className="flex gap-7 text-[1rem] px-4 rounded-lg font-[Outfit] items-center h-8">
-        {["/", "/about", "/project", "/guestbook"].map((path, idx) => {
-          const label = ["Home", "About", "Work", "GuestBook"][idx];
-          return (
+        {/* Desktop nav */}
+        <div className="hidden md:flex gap-8 text-sm font-[Merryweather] uppercase tracking-wide">
+          {navLinks.map(({ path, label }) => (
             <NavLink
               key={path}
               to={path}
               className={({ isActive }) =>
-                `relative transition-all duration-200 ${
-                  isActive ? "text-white" : "text-white/70"
-                }
-                font-[Inter]`
+                `relative transition-colors duration-200 ${
+                  isActive ? "text-white" : "text-white/70 hover:text-white"
+                }`
               }
+              onClick={() => setIsOpen(false)}
             >
               {({ isActive }) => (
                 <>
@@ -65,16 +73,21 @@ const Navbar = () => {
                 </>
               )}
             </NavLink>
-          );
-        })}
-      </div>
+          ))}
+        </div>
 
-      <NavLink to="*">
-        <NavLink to="/3d" draggable={false}>
+        {/* 3D Portfolio Button (desktop) */}
+        <NavLink
+          to="/3d"
+          draggable={false}
+          className="hidden md:inline-block focus:outline-none focus:ring-2 focus:ring-white rounded"
+          aria-label="3D Portfolio"
+          onClick={() => setIsOpen(false)}
+        >
           <motion.img
             src={comp}
-            alt="Monitor"
-            className="h-12"
+            alt="3D Portfolio Icon"
+            className="h-10 w-10"
             draggable={false}
             whileHover={{
               scale: 1.2,
@@ -84,7 +97,85 @@ const Navbar = () => {
             style={{ transformStyle: "preserve-3d" }}
           />
         </NavLink>
-      </NavLink>
+
+        {/* Mobile menu button */}
+        <button
+          onClick={toggleMenu}
+          className="md:hidden focus:outline-none focus:ring-2 focus:ring-white rounded ml-2"
+          aria-label="Toggle menu"
+          style={{ zIndex: 10 }}
+        >
+          <svg
+            className="w-6 h-6 text-white"
+            fill="none"
+            stroke="currentColor"
+            viewBox="0 0 24 24"
+            xmlns="http://www.w3.org/2000/svg"
+          >
+            {isOpen ? (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M6 18L18 6M6 6l12 12"
+              />
+            ) : (
+              <path
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                strokeWidth={2}
+                d="M4 6h16M4 12h16M4 18h16"
+              />
+            )}
+          </svg>
+        </button>
+      </div>
+
+      {/* Mobile menu */}
+      {isOpen && (
+        <motion.div
+          initial={{ opacity: 0, height: 0 }}
+          animate={{ opacity: 1, height: "auto" }}
+          exit={{ opacity: 0, height: 0 }}
+          className="md:hidden bg-black bg-opacity-80 backdrop-blur-md rounded-b-xl px-4 pb-4 flex flex-col gap-4 max-w-full overflow-x-hidden"
+        >
+          {navLinks.map(({ path, label }) => (
+            <NavLink
+              key={path}
+              to={path}
+              className={({ isActive }) =>
+                `relative transition-colors duration-200 py-2 ${
+                  isActive ? "text-white" : "text-white/70 hover:text-white"
+                }`
+              }
+              onClick={() => setIsOpen(false)}
+            >
+              {label}
+            </NavLink>
+          ))}
+
+          <NavLink
+            to="/3d"
+            draggable={false}
+            className="focus:outline-none focus:ring-2 focus:ring-white rounded inline-block"
+            aria-label="3D Portfolio"
+            onClick={() => setIsOpen(false)}
+          >
+            <motion.img
+              src={comp}
+              alt="3D Portfolio Icon"
+              className="h-10 w-10"
+              draggable={false}
+              whileHover={{
+                scale: 1.2,
+                rotateY: 360,
+                transition: { duration: 0.5, ease: "easeInOut" },
+              }}
+              style={{ transformStyle: "preserve-3d" }}
+            />
+          </NavLink>
+        </motion.div>
+      )}
     </motion.nav>
   );
 };

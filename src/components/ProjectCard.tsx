@@ -56,21 +56,27 @@ interface Props {
 export default function ProjectCard({ project, isActive }: Props) {
   return (
 <motion.div
-  className={`flex flex-col lg:flex-row items-center justify-center transition-all duration-500 w-[70vw] gap-10 p-4 rounded-xl bg-black/10 backdrop-blur-md   ${
+  className={`flex flex-col lg:flex-row items-center justify-center transition-all duration-500 w-[90vw] md:w-[70vw] gap-10 p-4 rounded-xl bg-black/10 backdrop-blur-md ${
     isActive ? "opacity-100" : "opacity-0"
   }`}
   initial={{ opacity: 0, y: 100 }}
   animate={{ opacity: 1, y: 0 }}
 >
-  {/* Fixed-size image container */}
-  <div className="w-[500px] h-[280px] min-w-[500px] flex-shrink-0 rounded-2xl overflow-hidden shadow-lg transition-all duration-500">
+  {/* Responsive image container */}
+  <div
+    className="
+      w-full max-w-[350px] h-[180px] 
+      sm:max-w-[420px] sm:h-[220px]
+      md:max-w-[500px] md:h-[280px] 
+      flex-shrink-0 rounded-2xl overflow-hidden shadow-lg transition-all duration-500
+    "
+  >
     <img
       src={project.imageUrl}
       alt={project.title}
       className="object-cover w-full h-full"
     />
   </div>
-
 
   <div className="mt-4 flex flex-wrap gap-3">
     <motion.div
@@ -104,5 +110,6 @@ export default function ProjectCard({ project, isActive }: Props) {
     </motion.div>
   </div>
 </motion.div>
+
   );
 }

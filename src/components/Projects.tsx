@@ -8,7 +8,7 @@ export default function Projects() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
   return (
-    <section className="w-full min-h-screen z-10 flex flex-col items-center pb-50">
+    <section className="w-full min-h-screen z-10 flex flex-col items-center pb-50 s">
       <h1 className="text-4xl font-bold text-white mb-16 text-center">
         Projects
       </h1>
