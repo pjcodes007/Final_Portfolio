@@ -105,40 +105,45 @@ export default function Guestbook() {
       <StarryBackground />
       <Navbar />
 
-      <div className="min-h-screen flex flex-col items-center justify-start bg-black/50 py-6">
-        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
-          {entries.map((entry, idx) => (
-            <motion.div
-              key={idx}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ duration: 0.3, delay: idx * 0.05 }}
-              className="bg-neutral-900 rounded-xl shadow-lg border border-neutral-800 w-48 overflow-hidden flex flex-col"
-            >
-              {/* Image */}
-              <div className="w-full aspect-[4/5] bg-neutral-800 flex items-center justify-center p-2">
-                {entry.image ? (
-                  <img
-                    src={entry.image}
-                    alt="doodle"
-                    className="w-full h-full object-contain bg-gray-300 rounded"
-                  />
-                ) : (
-                  <span className="text-neutral-500 text-xs">No doodle</span>
-                )}
-              </div>
+<div className="min-h-screen flex flex-col items-center justify-start bg-black/50 py-6">
+  {entries.length === 0 ? (
+    <p className="text-gray-400 text-lg font-semibold">No entries yet 😢</p>
+  ) : (
+    <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6">
+      {entries.map((entry, idx) => (
+        <motion.div
+          key={idx}
+          initial={{ opacity: 0, y: 20 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.3, delay: idx * 0.05 }}
+          className="bg-neutral-900 rounded-xl shadow-lg border border-neutral-800 w-48 overflow-hidden flex flex-col"
+        >
+          {/* Image */}
+          <div className="w-full aspect-[4/5] bg-neutral-800 flex items-center justify-center p-2">
+            {entry.image ? (
+              <img
+                src={entry.image}
+                alt="doodle"
+                className="w-full h-full object-contain bg-gray-300 rounded"
+              />
+            ) : (
+              <span className="text-neutral-500 text-xs">No doodle</span>
+            )}
+          </div>
 
-              {/* Name & message */}
-              <div className="flex flex-col px-3 py-2">
-                <h3 className="font-bold text-white text-sm">{entry.name}</h3>
-                <p className="text-xs font-semibold text-gray-300">
-                  {entry.message}
-                </p>
-              </div>
-            </motion.div>
-          ))}
-        </div>
-      </div>
+          {/* Name & message */}
+          <div className="flex flex-col px-3 py-2">
+            <h3 className="font-bold text-white text-sm">{entry.name}</h3>
+            <p className="text-xs font-semibold text-gray-300">
+              {entry.message}
+            </p>
+          </div>
+        </motion.div>
+      ))}
+    </div>
+  )}
+</div>
+
 
       {/* Floating + button */}
       <button

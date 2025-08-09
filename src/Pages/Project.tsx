@@ -76,8 +76,8 @@ const projects: Project[] = [
       "Node.js",
       "Zustand",
     ],
-    image: "/image2.png",
-    github: "../../public/image2.png",
+    image: "image2.png",
+    github: "https://github.com/pjcodes007/E-commerce-website",
   },
   {
     title: "Social Media Website",
@@ -98,8 +98,8 @@ const projects: Project[] = [
       "Node.js",
       "Zustand",
     ],
-    image: "/image3.png",
-    github: "https://github.com/yourusername/project-two",
+    image: "image3.png",
+    github: "https://github.com/pjcodes007/Social-media-lite",
   },
   {
     title: "Tic Tac Toe",
@@ -111,8 +111,8 @@ const projects: Project[] = [
       "Reset controls for both game and score",
     ],
     techStack: ["React", "Tailwind"],
-    image: "/project-sample.png",
-    github: "https://github.com/yourusername/project-three",
+    image: "image4.png",
+    github: "https://github.com/pjcodes007/TicTacToe",
   },
   {
     title: "Portfolio",
@@ -124,9 +124,24 @@ const projects: Project[] = [
       "Built-in Game Zone section for creative flair",
     ],
     techStack: ["React", "Tailwind"],
-    image: "/image.png",
-    github: "https://github.com/yourusername/project-three",
+    image: "image.png",
+    github: "https://github.com/pjcodes007/Portfolio-Website",
   },
+{
+  title: "Personal Portfolio",
+  description:
+    "A sleek and dynamic personal portfolio showcasing skills, projects, and milestones through engaging visuals and smooth interactions.",
+  points: [
+    "Interactive hero section with personalized greeting and hover effects",
+    "Custom canvas-based drawing feature with centered layout for creativity",
+    "Animated timeline highlighting professional journey and achievements",
+    "GitHub contributions calendar integration for real-time activity display",
+    "Polished UI with Framer Motion animations and responsive design",
+  ],
+  techStack: ["React", "Tailwind", "Framer Motion","ShadCn","Vercel","Mongoose","Express","TypeScript"],
+  image: "image5.png",
+  github: "https://github.com/pjcodes007/Final_Portfolio",
+},
 ];
 
 const ProjectCard: React.FC<ProjectCardProps> = ({ project, index }) => {

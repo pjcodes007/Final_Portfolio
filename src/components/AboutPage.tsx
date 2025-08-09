@@ -55,26 +55,31 @@ export default function AboutPage() {
         <DotBackgroundDemo />
         
       {/* Intro Section */}
-      <motion.div
-        initial={{ opacity: 0, y: 40 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.6 }}
-        className="text-center max-w-3xl mx-auto absolute inset-x-0 top-35"
-      >
-        <h1 className="text-4xl md:text-5xl font-semibold mb-4 relative inline-block group">
-          <span className="relative z-10">Hi</span>
-          <span
-            className="absolute z-0 -left-6 -top-3 text-3xl md:text-4xl opacity-0 group-hover:opacity-100 transition-all duration-300 rotate-[-35deg] "
-            aria-hidden
-          >
-            ✋
-          </span>
-          , I’m <span className="font-black text-white">Praanjal</span>
-        </h1>
-        <p className="text-lg md:text-xl text-gray-300 font-[Outfit]">
-          I’m a full-stack developer crafting clean, performant, and beautiful experiences on the web.
-        </p>
-      </motion.div>
+{/* Intro Section */}
+<motion.div
+  initial={{ opacity: 0, y: 40 }}
+  animate={{ opacity: 1, y: 0 }}
+  transition={{ duration: 0.6 }}
+  className="text-center max-w-3xl mx-auto absolute inset-x-0 top-35"
+>
+  <h1 className="text-4xl md:text-5xl font-semibold mb-4 relative inline-block group">
+    <span className="relative z-10">Hi</span>
+    <span
+      className="absolute z-0 -left-6 -top-3 text-3xl md:text-4xl opacity-0 group-hover:opacity-100 transition-all duration-300 rotate-[-35deg]"
+      aria-hidden
+    >
+      ✋
+    </span>
+    , I’m{" "}
+    <span className="inline-flex items-center gap-3">
+      <span className="font-black text-white">Praanjal</span>
+    </span>
+  </h1>
+  <p className="text-lg md:text-xl text-gray-300 font-[Outfit]">
+    I’m a full-stack developer crafting clean, performant, and beautiful experiences on the web.
+  </p>
+</motion.div>
+
 
       {/* Code Block About Me */}
       <motion.pre

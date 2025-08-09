@@ -3,7 +3,8 @@ import { useAnimation, motion } from "framer-motion";
 import { NavLink } from "react-router-dom";
 import PopUp from "@/Pages/PopUp";
 import comp from "../../public/comp.png";
-import '../App.css'
+import CookingPage from "./3d";
+import "../App.css";
 
 const Navbar = () => {
   const controls = useAnimation();
@@ -39,8 +40,8 @@ const Navbar = () => {
 
       {/* Nav Links */}
       <div className="flex gap-7 text-[1rem] px-4 rounded-lg font-[Outfit] items-center h-8">
-        {["/", "/about", "/project",'/guestbook'].map((path, idx) => {
-          const label = ["Home", "About", "Work","GuestBook"][idx];
+        {["/", "/about", "/project", "/guestbook"].map((path, idx) => {
+          const label = ["Home", "About", "Work", "GuestBook"][idx];
           return (
             <NavLink
               key={path}
@@ -68,21 +69,21 @@ const Navbar = () => {
         })}
       </div>
 
-     
-      <NavLink to='*'>
-      
-      
-      <motion.img
-        src={comp}
-        alt="Monitor"
-        className="h-12"
-        draggable={false}
-        whileHover={{
-          scale: 1.2,
-          rotateY: 360,
-          transition: { duration: 0.5, ease: "easeInOut" },
-        }}
-      />
+      <NavLink to="*">
+        <NavLink to="/3d" draggable={false}>
+          <motion.img
+            src={comp}
+            alt="Monitor"
+            className="h-12"
+            draggable={false}
+            whileHover={{
+              scale: 1.2,
+              rotateY: 360,
+              transition: { duration: 0.5, ease: "easeInOut" },
+            }}
+            style={{ transformStyle: "preserve-3d" }}
+          />
+        </NavLink>
       </NavLink>
     </motion.nav>
   );

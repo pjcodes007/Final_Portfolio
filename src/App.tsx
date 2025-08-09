@@ -6,6 +6,7 @@ import PopUp from './Pages/PopUp';
 import NotFound from './Pages/NotFound';
 import ScrollToTop from './components/ScrollToTop';
 import Guestbook from './Pages/GuestBook';
+import CookingPage from './components/3d';
 
 
 const App = () =>{
@@ -19,6 +20,7 @@ const App = () =>{
       <Route path = '/project' element={<Projectss/>} />
       <Route path = '/guestbook' element={<Guestbook/>} />
       <Route path = '/*' element={<NotFound/>} />
+      <Route path = '/3d' element={<CookingPage/>} />
     </Routes>  
 
   
